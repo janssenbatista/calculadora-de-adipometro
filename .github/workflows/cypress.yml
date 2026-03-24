@@ -1,0 +1,38 @@
+name: E2E Tests
+on: push
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Cache Cypress binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install Cypress binary
+        run: pnpm exec cypress install
+      - name: Cypress run
+        uses: cypress-io/github-action@v7
+        with:
+          install: false
+          package-manager-cache: false
+          start: pnpm dev
+          wait-on: 'http://localhost:5173'
+          wait-on-timeout: 120
+          working-directory: .
