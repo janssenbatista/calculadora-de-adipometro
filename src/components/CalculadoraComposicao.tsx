@@ -142,10 +142,13 @@ function CalculadoraComposicaoComponent() {
           <p className="text-xs font-bold tracking-[0.16em] text-cyan-300 uppercase">
             Composição corporal
           </p>
-          <h1 className="text-3xl leading-tight font-black text-white md:text-5xl">
+          <h1
+            data-testid="titulo"
+            className="text-3xl leading-tight font-black text-white md:text-5xl"
+          >
             Calculadora de Adipômetro
           </h1>
-          <span className="max-w-2xl text-sm text-cyan-100/85 md:text-base">
+          <span data-testid="subtitulo" className="max-w-2xl text-sm text-cyan-100/85 md:text-base">
             Resultados em percentual de gordura baseados nas fórmulas clássicas.
           </span>
         </header>
@@ -158,6 +161,7 @@ function CalculadoraComposicaoComponent() {
             <label className="grid gap-1" htmlFor="protocolo">
               <span className="text-sm font-medium text-slate-700">Protocolo</span>
               <select
+                data-testid="protocolo"
                 id="protocolo"
                 className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 transition outline-none focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100"
                 value={protocolo}
@@ -173,6 +177,7 @@ function CalculadoraComposicaoComponent() {
 
             <div className="grid gap-3 md:grid-cols-2">
               <CampoNumero
+                data-testid="idade"
                 id="idade"
                 label="Idade"
                 value={idade}
@@ -183,6 +188,7 @@ function CalculadoraComposicaoComponent() {
               <label className="grid gap-1" htmlFor="genero">
                 <span className="text-sm font-medium text-slate-700">Gênero</span>
                 <select
+                  data-testid="genero"
                   id="genero"
                   className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 transition outline-none focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100"
                   value={genero}
@@ -201,6 +207,7 @@ function CalculadoraComposicaoComponent() {
               <div className="grid gap-3 md:grid-cols-2">
                 {camposDobrasVisiveis.map((campo) => (
                   <CampoNumero
+                    data-testid={campo.chave}
                     key={campo.chave}
                     id={campo.chave}
                     label={campo.label}
