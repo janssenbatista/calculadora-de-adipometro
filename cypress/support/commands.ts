@@ -76,9 +76,7 @@ Cypress.Commands.add('verificarDobrasVisiveis', (dobrasVisiveis: Dobras[]) => {
     cy.obterDataTestId(dobra).should('be.visible');
   });
 
-  const dobrasNaoVisiveis = todasAsDobras.filter(
-    (dobra) => dobrasVisiveis.findIndex((d) => d === dobra) === -1,
-  );
+  const dobrasNaoVisiveis = todasAsDobras.filter((dobra) => !dobrasVisiveis.includes(dobra));
 
   dobrasNaoVisiveis.forEach((dobra) => {
     cy.obterDataTestId(dobra).should('not.exist');
