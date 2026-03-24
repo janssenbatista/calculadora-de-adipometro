@@ -9,12 +9,13 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     strategy:
       matrix:
@@ -34,4 +35,14 @@ jobs:
     - run: pnpm install
     - run: pnpm run build
     - run: pnpm run lint
-    - run: pnpm run test
+    - name: Run Cypress E2E
+      run: |
+        pnpm run preview -- --host 127.0.0.1 --port 5173 &
+        for i in {1..30}; do
+          if curl -fsS http://127.0.0.1:5173 > /dev/null; then
+            break
+          fi
+          sleep 1
+        done
+        curl -fsS http://127.0.0.1:5173 > /dev/null
+        pnpm run test
