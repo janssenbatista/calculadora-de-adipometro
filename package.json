@@ -12,7 +12,8 @@
     "format:check": "prettier . --check",
     "preview": "vite preview",
     "prepare": "husky",
-    "test:e2e": "cypress run"
+    "test": "cypress run",
+    "test:e2e": "cypress open"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
