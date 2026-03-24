@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/* eslint-disable @typescript-eslint/no-namespace */
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -35,3 +36,53 @@
 //     }
 //   }
 // }
+
+export type Dobras =
+  | 'triceps'
+  | 'subescapular'
+  | 'suprailiaca'
+  | 'abdominal'
+  | 'coxa'
+  | 'peitoral'
+  | 'axilarMedia'
+  | 'panturrilha';
+
+export const todasAsDobras: Dobras[] = [
+  'triceps',
+  'subescapular',
+  'suprailiaca',
+  'abdominal',
+  'coxa',
+  'peitoral',
+  'axilarMedia',
+  'panturrilha',
+];
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      obterDataTestId(id: string): Chainable<JQuery<HTMLElement>>;
+      verificarDobrasVisiveis(dobras: Dobras[]): void;
+    }
+  }
+}
+
+Cypress.Commands.add('obterDataTestId', (id: string) => {
+  return cy.get(`[data-testid="${id}"]`);
+});
+
+Cypress.Commands.add('verificarDobrasVisiveis', (dobrasVisiveis: Dobras[]) => {
+  dobrasVisiveis.forEach((dobra) => {
+    cy.obterDataTestId(dobra).should('be.visible');
+  });
+
+  const dobrasNaoVisiveis = todasAsDobras.filter(
+    (dobra) => dobrasVisiveis.findIndex((d) => d === dobra) === -1,
+  );
+
+  dobrasNaoVisiveis.forEach((dobra) => {
+    cy.obterDataTestId(dobra).should('not.exist');
+  });
+});
+
+export {};
