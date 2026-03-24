@@ -1,5 +1,7 @@
+import CalculadoraComposicao from './components/CalculadoraComposicao';
+
 function App() {
-  return <></>;
+  return <CalculadoraComposicao />;
 }
 
 export default App;
