@@ -207,7 +207,6 @@ function CalculadoraComposicaoComponent() {
               <div className="grid gap-3 md:grid-cols-2">
                 {camposDobrasVisiveis.map((campo) => (
                   <CampoNumero
-                    data-testid={campo.chave}
                     key={campo.chave}
                     id={campo.chave}
                     label={campo.label}
