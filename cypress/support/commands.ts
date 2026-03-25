@@ -63,6 +63,7 @@ declare global {
     interface Chainable {
       obterDataTestId(id: string): Chainable<JQuery<HTMLElement>>;
       verificarDobrasVisiveis(dobras: Dobras[]): void;
+      preencherDobras(dobras: Partial<Record<Dobras, number | string>>): void;
     }
   }
 }
@@ -80,6 +81,12 @@ Cypress.Commands.add('verificarDobrasVisiveis', (dobrasVisiveis: Dobras[]) => {
 
   dobrasNaoVisiveis.forEach((dobra) => {
     cy.obterDataTestId(dobra).should('not.exist');
+  });
+});
+
+Cypress.Commands.add('preencherDobras', (dobras: Partial<Record<Dobras, number | string>>) => {
+  Object.entries(dobras).forEach(([dobra, valor]) => {
+    cy.obterDataTestId(dobra).clear().type(String(valor));
   });
 });
 

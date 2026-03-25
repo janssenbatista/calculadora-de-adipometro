@@ -14,7 +14,7 @@ interface Dados {
 }
 
 const DadoMasculino: Dados = {
-  genero: 'masculino',
+  genero: 'Masculino',
   idade: 28,
   triceps: 12,
   subescapular: 10,
@@ -58,18 +58,19 @@ describe('Calculador de Adipômetro', () => {
       peitoral,
       axilarMedia,
     } = DadoMasculino;
-
     cy.obterDataTestId('protocolo').select('Pollock 7 Dobras');
     cy.obterDataTestId('genero').select(genero);
+    cy.obterDataTestId('idade').type(String(idade));
 
-    cy.obterDataTestId('idade').type(idade);
-    cy.obterDataTestId('triceps').type(triceps);
-    cy.obterDataTestId('subescapular').type(subescapular);
-    cy.obterDataTestId('suprailiaca').type(suprailiaca);
-    cy.obterDataTestId('abdominal').type(abdominal);
-    cy.obterDataTestId('coxa').type(coxa);
-    cy.obterDataTestId('peitoral').type(peitoral);
-    cy.obterDataTestId('axilarMedia').type(axilarMedia);
+    cy.preencherDobras({
+      triceps,
+      subescapular,
+      suprailiaca,
+      abdominal,
+      coxa,
+      peitoral,
+      axilarMedia,
+    });
 
     cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
     cy.obterDataTestId('resultado').should('have.text', '13.53 %');
