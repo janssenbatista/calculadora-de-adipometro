@@ -26,6 +26,19 @@ const DadoMasculino: Dados = {
   panturrilha: 13,
 };
 
+const DadoFeminino: Dados = {
+  genero: 'Feminino',
+  idade: 28,
+  triceps: 18,
+  subescapular: 14,
+  suprailiaca: 19,
+  abdominal: 22,
+  coxa: 24,
+  peitoral: 10,
+  axilarMedia: 12,
+  panturrilha: 16,
+};
+
 describe('Calculador de Adipômetro', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -74,5 +87,36 @@ describe('Calculador de Adipômetro', () => {
 
     cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
     cy.obterDataTestId('resultado').should('have.text', '13.53 %');
+  });
+
+  it('CT-E2E-003 - Pollock 7 feminino com dados válidos', () => {
+    const {
+      genero,
+      idade,
+      triceps,
+      subescapular,
+      suprailiaca,
+      abdominal,
+      coxa,
+      peitoral,
+      axilarMedia,
+    } = DadoFeminino;
+
+    cy.obterDataTestId('protocolo').select('Pollock 7 Dobras');
+    cy.obterDataTestId('genero').select(genero);
+    cy.obterDataTestId('idade').type(String(idade));
+
+    cy.preencherDobras({
+      triceps,
+      subescapular,
+      suprailiaca,
+      abdominal,
+      coxa,
+      peitoral,
+      axilarMedia,
+    });
+
+    cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
+    cy.obterDataTestId('resultado').should('have.text', '23.48 %');
   });
 });
