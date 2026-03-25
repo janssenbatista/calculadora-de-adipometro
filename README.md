@@ -94,23 +94,23 @@ Executa todos os testes automaticamente em background.
 
 A suite completa de testes é documentada em [tests/e2e/casos-teste-qa.md](tests/e2e/casos-teste-qa.md) e inclui:
 
-| ID         | Descrição                                     | Prioridade |
-| ---------- | --------------------------------------------- | ---------- |
-| CT-E2E-001 | Estado inicial da tela                        | Alta       |
-| CT-E2E-002 | Pollock 7 masculino com dados válidos         | Crítica    |
-| CT-E2E-003 | Pollock 7 feminino com dados válidos          | Crítica    |
-| CT-E2E-004 | Pollock 3 masculino com campos dinâmicos      | Alta       |
-| CT-E2E-005 | Pollock 3 feminino com campos dinâmicos       | Alta       |
-| CT-E2E-006 | Guedes masculino                              | Alta       |
-| CT-E2E-007 | Guedes feminino                               | Alta       |
-| CT-E2E-008 | Faulkner                                      | Alta       |
-| CT-E2E-009 | Petroski masculino                            | Alta       |
-| CT-E2E-010 | Petroski feminino                             | Alta       |
-| CT-E2E-011 | Campo obrigatório faltante bloqueia resultado | Crítica    |
-| CT-E2E-012 | Alteração de protocolo recalcula              | Alta       |
-| CT-E2E-013 | Troca de gênero altera dobras obrigatórias    | Alta       |
-| CT-E2E-014 | Entrada negativa não gera resultado inválido  | Média      |
-| CT-E2E-015 | Valor decimal refletido no cálculo            | Média      |
+| ID         | Descrição                                     | Prioridade | Concluído |
+| ---------- | --------------------------------------------- | ---------- | --------- |
+| CT-E2E-001 | Estado inicial da tela                        | Alta       | ✅        |
+| CT-E2E-002 | Pollock 7 masculino com dados válidos         | Crítica    | ✅        |
+| CT-E2E-003 | Pollock 7 feminino com dados válidos          | Crítica    | ✅        |
+| CT-E2E-004 | Pollock 3 masculino com campos dinâmicos      | Alta       | ✅        |
+| CT-E2E-005 | Pollock 3 feminino com campos dinâmicos       | Alta       | ✅        |
+| CT-E2E-006 | Guedes masculino                              | Alta       | ⏳        |
+| CT-E2E-007 | Guedes feminino                               | Alta       | ⏳        |
+| CT-E2E-008 | Faulkner                                      | Alta       | ⏳        |
+| CT-E2E-009 | Petroski masculino                            | Alta       | ⏳        |
+| CT-E2E-010 | Petroski feminino                             | Alta       | ⏳        |
+| CT-E2E-011 | Campo obrigatório faltante bloqueia resultado | Crítica    | ⏳        |
+| CT-E2E-012 | Alteração de protocolo recalcula              | Alta       | ⏳        |
+| CT-E2E-013 | Troca de gênero altera dobras obrigatórias    | Alta       | ⏳        |
+| CT-E2E-014 | Entrada negativa não gera resultado inválido  | Média      | ⏳        |
+| CT-E2E-015 | Valor decimal refletido no cálculo            | Média      | ⏳        |
 
 **Todos os testes validam:**
 
