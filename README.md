@@ -106,7 +106,7 @@ A suite completa de testes é documentada em [tests/e2e/casos-teste-qa.md](tests
 | CT-E2E-008 | Faulkner                                      | Alta       | ⏳        |
 | CT-E2E-009 | Petroski masculino                            | Alta       | ⏳        |
 | CT-E2E-010 | Petroski feminino                             | Alta       | ⏳        |
-| CT-E2E-011 | Campo obrigatório faltante bloqueia resultado | Crítica    | ⏳        |
+| CT-E2E-011 | Campo obrigatório faltante bloqueia resultado | Crítica    | ✅        |
 | CT-E2E-012 | Alteração de protocolo recalcula              | Alta       | ⏳        |
 | CT-E2E-013 | Troca de gênero altera dobras obrigatórias    | Alta       | ⏳        |
 | CT-E2E-014 | Entrada negativa não gera resultado inválido  | Média      | ⏳        |

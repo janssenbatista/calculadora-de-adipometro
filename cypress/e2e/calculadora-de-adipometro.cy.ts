@@ -153,4 +153,24 @@ describe('Calculador de Adipômetro', () => {
     cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 3 Dobras');
     cy.obterDataTestId('resultado').should('have.text', '24.33 %');
   });
+
+  it('CT-E2E-011 - Campo obrigatório faltante bloqueia resultado', () => {
+    const { genero, idade, triceps, subescapular, suprailiaca, abdominal, coxa, peitoral } =
+      DadoMasculino;
+    cy.obterDataTestId('protocolo').select('Pollock 7 Dobras');
+    cy.obterDataTestId('genero').select(genero);
+    cy.obterDataTestId('idade').type(String(idade));
+
+    cy.preencherDobras({
+      triceps,
+      subescapular,
+      suprailiaca,
+      abdominal,
+      coxa,
+      peitoral,
+    });
+
+    cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
+    cy.obterDataTestId('resultado').should('have.text', '--');
+  });
 });
