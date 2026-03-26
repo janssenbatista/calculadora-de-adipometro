@@ -241,4 +241,11 @@ describe('Calculador de Adipômetro', () => {
     cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
     cy.obterDataTestId('resultado').should('have.text', '14.57 %');
   });
+
+  it('CT-E2E-013 - Troca de gênero altera dobras obrigatórias', () => {
+    cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
+    cy.verificarDobrasVisiveis(['peitoral', 'abdominal', 'coxa']);
+    cy.obterDataTestId('genero').select('feminino');
+    cy.verificarDobrasVisiveis(['triceps', 'suprailiaca', 'coxa']);
+  });
 });
