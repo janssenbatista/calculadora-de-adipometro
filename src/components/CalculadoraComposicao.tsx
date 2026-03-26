@@ -79,12 +79,13 @@ const estadoInicialDobras: DobrasInput = {
 
 function toNumber(valor: string): number {
   const normalizado = valor.replace(',', '.').trim();
+
   if (!normalizado) {
     return 0;
   }
 
   const numero = Number.parseFloat(normalizado);
-  return Number.isFinite(numero) && numero >= 0 ? numero : 0;
+  return Number.isFinite(numero) && numero >= 0 ? numero : numero * -1;
 }
 
 function CalculadoraComposicaoComponent() {
