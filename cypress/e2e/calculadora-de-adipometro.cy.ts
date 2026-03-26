@@ -235,4 +235,10 @@ describe('Calculador de Adipômetro', () => {
     cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
     cy.obterDataTestId('resultado').should('have.text', '--');
   });
+
+  it('CT-E2E-012 - Alteração de protocolo recalcula com novos obrigatórios', () => {
+    validarPollock7Dobras(dadoMasculino, '13.53 %');
+    cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
+    cy.obterDataTestId('resultado').should('have.text', '14.57 %');
+  });
 });
