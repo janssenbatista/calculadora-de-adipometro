@@ -196,6 +196,16 @@ describe('Calculador de Adipômetro', () => {
     );
   });
 
+  it('CT-E2E-009 - Petroski masculino', () => {
+    const { genero, idade, subescapular, triceps, suprailiaca, panturrilha } = dadoMasculino;
+    validarProtocolo(
+      'Petroski',
+      { genero, idade, subescapular, triceps, suprailiaca, panturrilha },
+      ['triceps', 'subescapular', 'suprailiaca', 'panturrilha'],
+      '16.60 %',
+    );
+  });
+
   it('CT-E2E-011 - Campo obrigatório faltante bloqueia resultado', () => {
     const { genero, idade, triceps, subescapular, suprailiaca, abdominal, coxa, peitoral } =
       dadoMasculino;
