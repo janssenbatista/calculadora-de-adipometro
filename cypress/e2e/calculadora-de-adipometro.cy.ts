@@ -249,7 +249,16 @@ describe('Calculador de Adipômetro', () => {
     cy.verificarDobrasVisiveis(['triceps', 'suprailiaca', 'coxa']);
   });
 
-  it.only('CT-E2E-014 - Entrada negativa não deve gerar resultado inválido', () => {
+  it('CT-E2E-014 - Entrada negativa não deve gerar resultado inválido', () => {
     validarPollock7Dobras({ ...dadoMasculino, abdominal: -18 }, '13.53 %');
+  });
+
+  it('CT-E2E-015 - Valor decimal com ponto e refletido no cálculo', () => {
+    cy.obterDataTestId('protocolo').select('Faulkner');
+    cy.obterDataTestId('idade').type(String(28));
+
+    cy.preencherDobras({ triceps: 12.5, subescapular: 10.5, suprailiaca: 14.5, abdominal: 18.5 });
+
+    cy.obterDataTestId('resultado').contains(/\d{2}.\d{2} %/);
   });
 });
