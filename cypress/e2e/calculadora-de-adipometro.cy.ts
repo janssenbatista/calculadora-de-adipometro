@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import { Dobras } from '../support/commands';
+
 interface Dados {
   genero: string;
   idade: number;
@@ -69,6 +71,23 @@ const validarPollock7Dobras = (dados: Dados, resultado: string) => {
   cy.obterDataTestId('resultado').should('have.text', resultado);
 };
 
+const validarPollock3Dobras = (
+  dados: Partial<Dados>,
+  dobrasVisiveis: Dobras[],
+  resultado: string,
+) => {
+  const { genero, idade, ...dobras } = dados;
+  cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
+  cy.obterDataTestId('genero').select(genero);
+  cy.obterDataTestId('idade').type(String(idade));
+
+  cy.preencherDobras(dobras);
+
+  cy.verificarDobrasVisiveis(dobrasVisiveis);
+  cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 3 Dobras');
+  cy.obterDataTestId('resultado').should('have.text', resultado);
+};
+
 describe('Calculador de Adipômetro', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -98,37 +117,33 @@ describe('Calculador de Adipômetro', () => {
   });
 
   it('CT-E2E-004 - Pollock 3 masculino com campos dinâmicos', () => {
-    const { genero, idade, abdominal, coxa, peitoral } = dadoMasculino;
-    cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
-    cy.obterDataTestId('genero').select(genero);
-    cy.obterDataTestId('idade').type(String(idade));
-
-    cy.preencherDobras({
-      abdominal,
-      coxa,
-      peitoral,
-    });
-
-    cy.verificarDobrasVisiveis(['peitoral', 'abdominal', 'coxa']);
-    cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 3 Dobras');
-    cy.obterDataTestId('resultado').should('have.text', '14.57 %');
+    const { genero, idade, peitoral, abdominal, coxa } = dadoMasculino;
+    validarPollock3Dobras(
+      {
+        genero,
+        idade,
+        peitoral,
+        abdominal,
+        coxa,
+      },
+      ['peitoral', 'abdominal', 'coxa'],
+      '14.57 %',
+    );
   });
 
   it('CT-E2E-005 - Pollock 3 feminino com campos dinâmicos', () => {
     const { genero, idade, triceps, suprailiaca, coxa } = dadoFeminino;
-    cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
-    cy.obterDataTestId('genero').select(genero);
-    cy.obterDataTestId('idade').type(String(idade));
-
-    cy.preencherDobras({
-      triceps,
-      suprailiaca,
-      coxa,
-    });
-
-    cy.verificarDobrasVisiveis(['triceps', 'suprailiaca', 'coxa']);
-    cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 3 Dobras');
-    cy.obterDataTestId('resultado').should('have.text', '24.33 %');
+    validarPollock3Dobras(
+      {
+        genero,
+        idade,
+        triceps,
+        suprailiaca,
+        coxa,
+      },
+      ['triceps', 'suprailiaca', 'coxa'],
+      '24.33 %',
+    );
   });
 
   it('CT-E2E-011 - Campo obrigatório faltante bloqueia resultado', () => {
