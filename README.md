@@ -102,7 +102,7 @@ A suite completa de testes é documentada em [tests/e2e/casos-teste-qa.md](tests
 | CT-E2E-004 | Pollock 3 masculino com campos dinâmicos      | Alta       | ✅        |
 | CT-E2E-005 | Pollock 3 feminino com campos dinâmicos       | Alta       | ✅        |
 | CT-E2E-006 | Guedes masculino                              | Alta       | ✅        |
-| CT-E2E-007 | Guedes feminino                               | Alta       | ⏳        |
+| CT-E2E-007 | Guedes feminino                               | Alta       | ✅        |
 | CT-E2E-008 | Faulkner                                      | Alta       | ⏳        |
 | CT-E2E-009 | Petroski masculino                            | Alta       | ⏳        |
 | CT-E2E-010 | Petroski feminino                             | Alta       | ⏳        |

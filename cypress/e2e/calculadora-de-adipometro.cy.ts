@@ -176,6 +176,16 @@ describe('Calculador de Adipômetro', () => {
     );
   });
 
+  it('CT-E2E-007 - Guedes feminino', () => {
+    const { genero, idade, suprailiaca, coxa, subescapular } = dadoFeminino;
+    validarProtocolo(
+      'Guedes',
+      { genero, idade, suprailiaca, coxa, subescapular },
+      ['suprailiaca', 'coxa', 'subescapular'],
+      '24.80 %',
+    );
+  });
+
   it('CT-E2E-011 - Campo obrigatório faltante bloqueia resultado', () => {
     const { genero, idade, triceps, subescapular, suprailiaca, abdominal, coxa, peitoral } =
       dadoMasculino;
