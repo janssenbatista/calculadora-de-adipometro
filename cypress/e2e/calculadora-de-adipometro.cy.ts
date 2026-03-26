@@ -186,6 +186,16 @@ describe('Calculador de Adipômetro', () => {
     );
   });
 
+  it('CT-E2E-008 - Faulkner', () => {
+    const { genero, idade, triceps, subescapular, suprailiaca, abdominal } = dadoMasculino;
+    validarProtocolo(
+      'Faulkner',
+      { genero, idade, triceps, subescapular, suprailiaca, abdominal },
+      ['triceps', 'subescapular', 'suprailiaca', 'abdominal'],
+      '14.05 %',
+    );
+  });
+
   it('CT-E2E-011 - Campo obrigatório faltante bloqueia resultado', () => {
     const { genero, idade, triceps, subescapular, suprailiaca, abdominal, coxa, peitoral } =
       dadoMasculino;
