@@ -243,7 +243,7 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-012 - Alteração de protocolo recalcula com novos obrigatórios
 
-**Prioridade:** Alta
+**Prioridade:** Crítica
 
 **Passos:**
 
@@ -261,7 +261,7 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-013 - Troca de gênero altera dobras obrigatórias
 
-**Prioridade:** Alta
+**Prioridade:** Crítica
 
 **Passos:**
 
@@ -312,7 +312,7 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-016 - Atualização em tempo real
 
-**Prioridade:** Média
+**Prioridade:** Alta
 
 **Passos:**
 
@@ -330,7 +330,32 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 - Nenhum caso apresenta `NaN %`, tela em branco ou erro de execução no fluxo principal.
 - Mudanças de protocolo/gênero mantêm coerência de campos obrigatórios.
 
-## Observações para Automação Futura
+## Matriz de Execução Recomendada
 
-- Sugerido criar suíte Playwright com IDs estáveis (`data-testid`) em selects, inputs e card de resultado.
-- Cobrir pelo menos CT-E2E-002, CT-E2E-004, CT-E2E-011 e CT-E2E-013 como smoke/regressão inicial.
+### Smoke (build rápido / PR)
+
+- CT-E2E-002 - Pollock 7 masculino com dados válidos
+- CT-E2E-004 - Pollock 3 masculino com campos dinâmicos
+- CT-E2E-011 - Campo obrigatório faltante bloqueia resultado
+- CT-E2E-013 - Troca de gênero altera dobras obrigatórias
+
+### Regressão principal (release candidate)
+
+- CT-E2E-001 - Estado inicial da tela
+- CT-E2E-002 - Pollock 7 masculino com dados válidos
+- CT-E2E-003 - Pollock 7 feminino com dados válidos
+- CT-E2E-004 - Pollock 3 masculino com campos dinâmicos
+- CT-E2E-005 - Pollock 3 feminino com campos dinâmicos
+- CT-E2E-006 - Guedes masculino
+- CT-E2E-007 - Guedes feminino
+- CT-E2E-008 - Faulkner
+- CT-E2E-009 - Petroski masculino
+- CT-E2E-010 - Petroski feminino
+- CT-E2E-011 - Campo obrigatório faltante bloqueia resultado
+- CT-E2E-012 - Alteração de protocolo recalcula com novos obrigatórios
+- CT-E2E-013 - Troca de gênero altera dobras obrigatórias
+- CT-E2E-016 - Atualização em tempo real
+
+### Completa (noturna)
+
+- Todos os casos CT-E2E-001 a CT-E2E-016.
