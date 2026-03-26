@@ -261,4 +261,11 @@ describe('Calculador de Adipômetro', () => {
 
     cy.obterDataTestId('resultado').contains(/\d{2}.\d{2} %/);
   });
+
+  it('CT-E2E-016 - Atualização em tempo real', () => {
+    validarPollock7Dobras(dadoMasculino, '13.53 %');
+    cy.obterDataTestId('abdominal').clear().type('19');
+
+    cy.obterDataTestId('resultado').should('not.contain.text', '13.53 %');
+  });
 });

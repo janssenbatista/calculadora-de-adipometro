@@ -111,6 +111,7 @@ A suite completa de testes é documentada em [tests/e2e/casos-teste-qa.md](tests
 | CT-E2E-013 | Troca de gênero altera dobras obrigatórias    | Alta       | ✅        |
 | CT-E2E-014 | Entrada negativa não gera resultado inválido  | Média      | ✅        |
 | CT-E2E-015 | Valor decimal refletido no cálculo            | Média      | ✅        |
+| CT-E2E-016 | Atualização em tempo real                     | Média      | ✅        |
 
 **Todos os testes validam:**
 
