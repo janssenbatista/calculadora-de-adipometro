@@ -13,7 +13,7 @@ interface Dados {
   panturrilha: number;
 }
 
-const DadoMasculino: Dados = {
+const dadoMasculino: Dados = {
   genero: 'Masculino',
   idade: 28,
   triceps: 12,
@@ -26,7 +26,7 @@ const DadoMasculino: Dados = {
   panturrilha: 13,
 };
 
-const DadoFeminino: Dados = {
+const dadoFeminino: Dados = {
   genero: 'Feminino',
   idade: 28,
   triceps: 18,
@@ -37,6 +37,36 @@ const DadoFeminino: Dados = {
   peitoral: 10,
   axilarMedia: 12,
   panturrilha: 16,
+};
+
+const validarPollock7Dobras = (dados: Dados, resultado: string) => {
+  const {
+    genero,
+    idade,
+    triceps,
+    subescapular,
+    suprailiaca,
+    abdominal,
+    coxa,
+    peitoral,
+    axilarMedia,
+  } = dados;
+  cy.obterDataTestId('protocolo').select('Pollock 7 Dobras');
+  cy.obterDataTestId('genero').select(genero);
+  cy.obterDataTestId('idade').type(String(idade));
+
+  cy.preencherDobras({
+    triceps,
+    subescapular,
+    suprailiaca,
+    abdominal,
+    coxa,
+    peitoral,
+    axilarMedia,
+  });
+
+  cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
+  cy.obterDataTestId('resultado').should('have.text', resultado);
 };
 
 describe('Calculador de Adipômetro', () => {
@@ -60,68 +90,15 @@ describe('Calculador de Adipômetro', () => {
   });
 
   it('CT-E2E-002 - Pollock 7 masculino com dados válidos', () => {
-    const {
-      genero,
-      idade,
-      triceps,
-      subescapular,
-      suprailiaca,
-      abdominal,
-      coxa,
-      peitoral,
-      axilarMedia,
-    } = DadoMasculino;
-    cy.obterDataTestId('protocolo').select('Pollock 7 Dobras');
-    cy.obterDataTestId('genero').select(genero);
-    cy.obterDataTestId('idade').type(String(idade));
-
-    cy.preencherDobras({
-      triceps,
-      subescapular,
-      suprailiaca,
-      abdominal,
-      coxa,
-      peitoral,
-      axilarMedia,
-    });
-
-    cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
-    cy.obterDataTestId('resultado').should('have.text', '13.53 %');
+    validarPollock7Dobras(dadoMasculino, '13.53 %');
   });
 
   it('CT-E2E-003 - Pollock 7 feminino com dados válidos', () => {
-    const {
-      genero,
-      idade,
-      triceps,
-      subescapular,
-      suprailiaca,
-      abdominal,
-      coxa,
-      peitoral,
-      axilarMedia,
-    } = DadoFeminino;
-
-    cy.obterDataTestId('protocolo').select('Pollock 7 Dobras');
-    cy.obterDataTestId('genero').select(genero);
-    cy.obterDataTestId('idade').type(String(idade));
-
-    cy.preencherDobras({
-      triceps,
-      subescapular,
-      suprailiaca,
-      abdominal,
-      coxa,
-      peitoral,
-      axilarMedia,
-    });
-
-    cy.obterDataTestId('titulo-resultado').should('have.text', 'Pollock 7 Dobras');
-    cy.obterDataTestId('resultado').should('have.text', '23.48 %');
+    validarPollock7Dobras(dadoFeminino, '23.48 %');
   });
 
   it('CT-E2E-004 - Pollock 3 masculino com campos dinâmicos', () => {
-    const { genero, idade, abdominal, coxa, peitoral } = DadoMasculino;
+    const { genero, idade, abdominal, coxa, peitoral } = dadoMasculino;
     cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
     cy.obterDataTestId('genero').select(genero);
     cy.obterDataTestId('idade').type(String(idade));
@@ -138,7 +115,7 @@ describe('Calculador de Adipômetro', () => {
   });
 
   it('CT-E2E-005 - Pollock 3 feminino com campos dinâmicos', () => {
-    const { genero, idade, triceps, suprailiaca, coxa } = DadoFeminino;
+    const { genero, idade, triceps, suprailiaca, coxa } = dadoFeminino;
     cy.obterDataTestId('protocolo').select('Pollock 3 Dobras');
     cy.obterDataTestId('genero').select(genero);
     cy.obterDataTestId('idade').type(String(idade));
@@ -156,7 +133,7 @@ describe('Calculador de Adipômetro', () => {
 
   it('CT-E2E-011 - Campo obrigatório faltante bloqueia resultado', () => {
     const { genero, idade, triceps, subescapular, suprailiaca, abdominal, coxa, peitoral } =
-      DadoMasculino;
+      dadoMasculino;
     cy.obterDataTestId('protocolo').select('Pollock 7 Dobras');
     cy.obterDataTestId('genero').select(genero);
     cy.obterDataTestId('idade').type(String(idade));
