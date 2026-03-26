@@ -15,6 +15,8 @@ interface Dados {
   panturrilha: number;
 }
 
+type Protocolo = 'Pollock 3 Dobras' | 'Guedes' | 'Faulkner' | 'Petroski';
+
 const dadoMasculino: Dados = {
   genero: 'Masculino',
   idade: 28,
@@ -88,6 +90,24 @@ const validarPollock3Dobras = (
   cy.obterDataTestId('resultado').should('have.text', resultado);
 };
 
+const validarProtocolo = (
+  protocolo: Protocolo,
+  dados: Partial<Dados>,
+  dobrasVisiveis: Dobras[],
+  resultado: string,
+) => {
+  const { genero, idade, ...dobras } = dados;
+  cy.obterDataTestId('protocolo').select(protocolo);
+  cy.obterDataTestId('genero').select(genero!);
+  cy.obterDataTestId('idade').type(String(idade));
+
+  cy.preencherDobras(dobras);
+
+  cy.verificarDobrasVisiveis(dobrasVisiveis);
+  cy.obterDataTestId('titulo-resultado').should('have.text', protocolo);
+  cy.obterDataTestId('resultado').should('have.text', resultado);
+};
+
 describe('Calculador de Adipômetro', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -143,6 +163,16 @@ describe('Calculador de Adipômetro', () => {
       },
       ['triceps', 'suprailiaca', 'coxa'],
       '24.33 %',
+    );
+  });
+
+  it('CT-E2E-006 - Guedes masculino', () => {
+    const { genero, idade, triceps, suprailiaca, abdominal } = dadoMasculino;
+    validarProtocolo(
+      'Guedes',
+      { genero, idade, triceps, suprailiaca, abdominal },
+      ['triceps', 'suprailiaca', 'abdominal'],
+      '13.54 %',
     );
   });
 
