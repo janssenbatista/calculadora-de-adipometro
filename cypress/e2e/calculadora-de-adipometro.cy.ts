@@ -248,4 +248,8 @@ describe('Calculador de Adipômetro', () => {
     cy.obterDataTestId('genero').select('feminino');
     cy.verificarDobrasVisiveis(['triceps', 'suprailiaca', 'coxa']);
   });
+
+  it.only('CT-E2E-014 - Entrada negativa não deve gerar resultado inválido', () => {
+    validarPollock7Dobras({ ...dadoMasculino, abdominal: -18 }, '13.53 %');
+  });
 });
