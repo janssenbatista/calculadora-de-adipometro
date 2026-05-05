@@ -74,6 +74,9 @@ npm run preview
 
 Esta aplicação utiliza **Cypress** para testes end-to-end, garantindo que todas as fórmulas calculam corretamente e a interface se comporta conforme esperado.
 
+[cd-e2e.webm](https://github.com/user-attachments/assets/6771543e-4ec2-4074-8278-61aa97560b4d)
+
+
 ### Executar Testes em Modo Interativo
 
 ```bash
