@@ -137,26 +137,23 @@ function CalculadoraComposicaoComponent() {
     );
 
   return (
-    <section className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-cyan-900">
+    <section className="min-h-screen">
       <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-8 md:px-6 md:py-10">
         <header className="grid gap-1">
-          <p className="text-xs font-bold tracking-[0.16em] text-cyan-300 uppercase">
+          <p className="text-xs font-bold tracking-[0.16em] text-cyan-600 uppercase">
             Composição corporal
           </p>
-          <h1
-            data-testid="titulo"
-            className="text-3xl leading-tight font-black text-white md:text-5xl"
-          >
+          <h1 data-testid="titulo" className="text-3xl leading-tight font-black md:text-5xl">
             Calculadora de Adipômetro
           </h1>
-          <span data-testid="subtitulo" className="max-w-2xl text-sm text-cyan-100/85 md:text-base">
+          <span data-testid="subtitulo" className="max-w-2xl text-sm text-gray-800/85 md:text-base">
             Resultados em percentual de gordura baseados nas fórmulas clássicas.
           </span>
         </header>
 
         <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr]">
           <form
-            className="grid gap-4 rounded-3xl border border-cyan-200/30 bg-white/95 p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur-sm md:p-5"
+            className="grid gap-4 rounded-3xl border border-gray-200/80 bg-white/95 p-4 shadow-2xl md:p-5"
             onSubmit={(event) => event.preventDefault()}
           >
             <label className="grid gap-1" htmlFor="protocolo">
@@ -224,7 +221,7 @@ function CalculadoraComposicaoComponent() {
             </div>
           </form>
 
-          <aside className="grid content-start gap-3 rounded-3xl border border-cyan-200/30 bg-white/95 p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur-sm md:p-5">
+          <aside className="grid content-start gap-3 rounded-3xl border border-gray-200/80 bg-white/95 p-4 shadow-xl backdrop-blur-sm md:p-5">
             {resultadoSelecionado}
           </aside>
         </div>
