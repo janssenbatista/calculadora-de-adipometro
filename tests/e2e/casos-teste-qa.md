@@ -58,8 +58,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-001 - Estado inicial da tela
 
-**Prioridade:** Alta
-
 **Passos:**
 
 1. Acessar a página da calculadora.
@@ -76,8 +74,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 ---
 
 ### CT-E2E-002 - Pollock 7 masculino com dados válidos
-
-**Prioridade:** Crítica
 
 **Passos:**
 
@@ -97,8 +93,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 **Prioridade:** Crítica
 
-**Passos:**
-
 1. Selecionar protocolo Pollock 7 Dobras.
 2. Selecionar gênero Feminino.
 3. Preencher idade e dobras do Conjunto B.
@@ -112,8 +106,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 ---
 
 ### CT-E2E-004 - Pollock 3 masculino com campos dinâmicos
-
-**Prioridade:** Alta
 
 **Passos:**
 
@@ -131,8 +123,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-005 - Pollock 3 feminino com campos dinâmicos
 
-**Prioridade:** Alta
-
 **Passos:**
 
 1. Selecionar protocolo Pollock 3 Dobras.
@@ -149,8 +139,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-006 - Guedes masculino
 
-**Prioridade:** Alta
-
 **Passos:**
 
 1. Selecionar protocolo Guedes e gênero Masculino.
@@ -165,8 +153,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-007 - Guedes feminino
 
-**Prioridade:** Alta
-
 **Passos:**
 
 1. Selecionar protocolo Guedes e gênero Feminino.
@@ -179,8 +165,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 ---
 
 ### CT-E2E-008 - Faulkner
-
-**Prioridade:** Alta
 
 **Passos:**
 
@@ -196,8 +180,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-009 - Petroski masculino
 
-**Prioridade:** Alta
-
 **Passos:**
 
 1. Selecionar protocolo Petroski e gênero Masculino.
@@ -211,8 +193,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-010 - Petroski feminino
 
-**Prioridade:** Alta
-
 **Passos:**
 
 1. Selecionar protocolo Petroski e gênero Feminino.
@@ -225,8 +205,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 ---
 
 ### CT-E2E-011 - Campo obrigatório faltante bloqueia resultado
-
-**Prioridade:** Crítica
 
 **Passos:**
 
@@ -242,8 +220,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 ---
 
 ### CT-E2E-012 - Alteração de protocolo recalcula com novos obrigatórios
-
-**Prioridade:** Crítica
 
 **Passos:**
 
@@ -261,8 +237,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-013 - Troca de gênero altera dobras obrigatórias
 
-**Prioridade:** Crítica
-
 **Passos:**
 
 1. Selecionar Pollock 3.
@@ -278,8 +252,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 
 ### CT-E2E-014 - Entrada negativa não deve gerar resultado inválido
 
-**Prioridade:** Média
-
 **Passos:**
 
 1. Em qualquer protocolo, tentar inserir valor negativo em um campo numérico.
@@ -293,8 +265,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 ---
 
 ### CT-E2E-015 - Valor decimal com ponto e refletido no cálculo
-
-**Prioridade:** Média
 
 **Passos:**
 
@@ -311,8 +281,6 @@ Validar o comportamento da calculadora de composição corporal, garantindo que:
 ---
 
 ### CT-E2E-016 - Atualização em tempo real
-
-**Prioridade:** Alta
 
 **Passos:**
 

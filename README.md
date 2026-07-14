@@ -76,7 +76,6 @@ Esta aplicação utiliza **Cypress** para testes end-to-end, garantindo que toda
 
 [cd-e2e.webm](https://github.com/user-attachments/assets/6771543e-4ec2-4074-8278-61aa97560b4d)
 
-
 ### Executar Testes em Modo Interativo
 
 ```bash
@@ -97,24 +96,24 @@ Executa todos os testes automaticamente em background.
 
 A suite completa de testes é documentada em [tests/e2e/casos-teste-qa.md](tests/e2e/casos-teste-qa.md) e inclui:
 
-| ID         | Descrição                                     | Prioridade | Concluído |
-| ---------- | --------------------------------------------- | ---------- | --------- |
-| CT-E2E-001 | Estado inicial da tela                        | Alta       | ✅        |
-| CT-E2E-002 | Pollock 7 masculino com dados válidos         | Crítica    | ✅        |
-| CT-E2E-003 | Pollock 7 feminino com dados válidos          | Crítica    | ✅        |
-| CT-E2E-004 | Pollock 3 masculino com campos dinâmicos      | Alta       | ✅        |
-| CT-E2E-005 | Pollock 3 feminino com campos dinâmicos       | Alta       | ✅        |
-| CT-E2E-006 | Guedes masculino                              | Alta       | ✅        |
-| CT-E2E-007 | Guedes feminino                               | Alta       | ✅        |
-| CT-E2E-008 | Faulkner                                      | Alta       | ✅        |
-| CT-E2E-009 | Petroski masculino                            | Alta       | ✅        |
-| CT-E2E-010 | Petroski feminino                             | Alta       | ✅        |
-| CT-E2E-011 | Campo obrigatório faltante bloqueia resultado | Crítica    | ✅        |
-| CT-E2E-012 | Alteração de protocolo recalcula              | Alta       | ✅        |
-| CT-E2E-013 | Troca de gênero altera dobras obrigatórias    | Alta       | ✅        |
-| CT-E2E-014 | Entrada negativa não gera resultado inválido  | Média      | ✅        |
-| CT-E2E-015 | Valor decimal refletido no cálculo            | Média      | ✅        |
-| CT-E2E-016 | Atualização em tempo real                     | Média      | ✅        |
+| ID         | Descrição                                     | Concluído |
+| ---------- | --------------------------------------------- | --------- |
+| CT-E2E-001 | Estado inicial da tela                        | ✅        |
+| CT-E2E-002 | Pollock 7 masculino com dados válidos         | ✅        |
+| CT-E2E-003 | Pollock 7 feminino com dados válidos          | ✅        |
+| CT-E2E-004 | Pollock 3 masculino com campos dinâmicos      | ✅        |
+| CT-E2E-005 | Pollock 3 feminino com campos dinâmicos       | ✅        |
+| CT-E2E-006 | Guedes masculino                              | ✅        |
+| CT-E2E-007 | Guedes feminino                               | ✅        |
+| CT-E2E-008 | Faulkner                                      | ✅        |
+| CT-E2E-009 | Petroski masculino                            | ✅        |
+| CT-E2E-010 | Petroski feminino                             | ✅        |
+| CT-E2E-011 | Campo obrigatório faltante bloqueia resultado | ✅        |
+| CT-E2E-012 | Alteração de protocolo recalcula              | ✅        |
+| CT-E2E-013 | Troca de gênero altera dobras obrigatórias    | ✅        |
+| CT-E2E-014 | Entrada negativa não gera resultado inválido  | ✅        |
+| CT-E2E-015 | Valor decimal refletido no cálculo            | ✅        |
+| CT-E2E-016 | Atualização em tempo real                     | ✅        |
 
 **Todos os testes validam:**
 
